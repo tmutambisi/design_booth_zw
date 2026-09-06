@@ -16,11 +16,6 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-24">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-8">
         <div>
-          <div className="mb-8 flex items-center gap-2.5">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
-            <span className="tag">ZAS 2026 Promotion</span>
-          </div>
-
           <h1 className="display text-[clamp(2.75rem,8vw,5.25rem)]">
             We craft your
             <br />

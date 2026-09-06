@@ -8,7 +8,7 @@ const DETAILS = [
 export function Contact() {
   return (
     <section id="contact" className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
-      <div className="halo relative overflow-hidden rounded-[2rem] border border-border bg-surface p-8 sm:p-16">
+      <div className="relative overflow-hidden rounded-[2rem] border border-border bg-surface p-8 sm:p-16">
         <span className="tag">Contact</span>
         <h2 className="display relative mt-5 text-[clamp(2.25rem,6vw,4.5rem)]">
           Make a date
