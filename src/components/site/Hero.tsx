@@ -62,6 +62,8 @@ export function Hero() {
         </div>
 
         <div className="halo relative flex items-center justify-center">
+          <div className="absolute aspect-square w-[86%] max-w-xl rounded-full bg-surface-2/70 blur-3xl" />
+          <div className="absolute aspect-square w-[62%] max-w-md rounded-full bg-surface-2 opacity-60 blur-2xl" />
           <motion.img
             src={heroShowcase}
             alt="Branded t-shirt, tumbler, notebook and business cards produced by Design Booth Graphics"
