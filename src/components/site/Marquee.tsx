@@ -20,7 +20,7 @@ export function Marquee() {
             {WORDS.map((w) => (
               <span key={w} className="tag flex items-center gap-10 whitespace-nowrap">
                 {w}
-                <span className="h-1 w-1 rounded-full bg-primary" />
+                <span className="text-secondary">/</span>
               </span>
             ))}
           </div>

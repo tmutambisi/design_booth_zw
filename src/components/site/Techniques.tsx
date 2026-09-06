@@ -24,7 +24,7 @@ export function Techniques() {
       <div className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-2">
         {TECHNIQUES.map((t) => (
           <div key={t.name} className="group bg-background p-8 transition-colors hover:bg-surface sm:p-12">
-            <span className="mb-6 block h-1.5 w-1.5 rounded-full bg-primary opacity-40 transition-opacity group-hover:opacity-100" />
+            <span className="mb-6 block h-px w-10 bg-border transition-colors group-hover:bg-primary" />
             <h3 className="display text-2xl">{t.name}</h3>
             <p className="mt-3 max-w-xs text-sm text-muted-foreground">{t.text}</p>
           </div>

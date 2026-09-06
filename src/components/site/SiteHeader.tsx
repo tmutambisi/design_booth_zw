@@ -30,7 +30,6 @@ export function SiteHeader() {
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
         <a href="#top" className="flex items-center gap-2.5">
-          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
           <span className="display text-sm tracking-tight">
             Design<span className="text-muted-foreground">Booth</span>
           </span>
