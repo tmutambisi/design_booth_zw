@@ -114,7 +114,7 @@ export function Services() {
           ))}
         </div>
 
-        <div className="halo relative order-first flex min-h-[320px] items-center justify-center rounded-3xl border border-border bg-surface lg:order-none lg:min-h-[560px]">
+        <div className="relative order-first flex min-h-[320px] items-center justify-center rounded-3xl border border-border bg-surface transition-colors hover:border-primary/40 lg:order-none lg:min-h-[560px]">
           <AnimatePresence mode="wait">
             <motion.img
               key={current.id}
