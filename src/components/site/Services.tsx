@@ -61,7 +61,7 @@ const SERVICES = [
 
 export function Services() {
   const [active, setActive] = useState(0);
-  const current = SERVICES[active];
+  const current = SERVICES[active] ?? SERVICES[0]!;
 
   return (
     <section id="services" className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
