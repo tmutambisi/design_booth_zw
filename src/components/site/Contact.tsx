@@ -73,9 +73,15 @@ export function SiteFooter() {
           </span>
           <span className="tag ml-2 hidden sm:inline-block">Make a date with us</span>
         </div>
-        <p className="text-xs text-muted-foreground">
-          © Design Booth Graphics (Pvt) Ltd. All rights reserved.
-        </p>
+        <div className="flex flex-col gap-1 sm:items-end">
+          <p className="text-xs text-muted-foreground">
+            © Design Booth Graphics (Pvt) Ltd. All rights reserved.
+          </p>
+          <p className="font-mono text-[10px] text-muted-foreground/60">
+            Powered by{" "}
+            <span className="font-semibold tracking-widest text-muted-foreground">TUNGASONIC</span>
+          </p>
+        </div>
       </div>
     </footer>
   );

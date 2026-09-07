@@ -109,7 +109,9 @@ function MobileSlider({ products }: { products: ProductItem[] }) {
 
   const handleTouchEnd = (e: React.TouchEvent) => {
     if (touchStartX.current === null) return;
-    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    const touch = e.changedTouches[0];
+    if (!touch) return;
+    const delta = touchStartX.current - touch.clientX;
     if (Math.abs(delta) > 40) {
       if (delta > 0) setCurrent((c) => Math.min(c + 1, products.length - 1));
       else setCurrent((c) => Math.max(c - 1, 0));
@@ -117,16 +119,18 @@ function MobileSlider({ products }: { products: ProductItem[] }) {
     touchStartX.current = null;
   };
 
-  const product = products[current];
+  // Clamp index in case products list is shorter than expected
+  const safeIndex = Math.min(current, products.length - 1);
+  const product = products[safeIndex];
 
   return (
     <div className="relative w-full">
-      {/* Slide area */}
+      {/* Slide area — pan-x allows horizontal swipe without blocking vertical scroll */}
       <div
         className="relative overflow-hidden rounded-3xl border border-border bg-surface"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
-        style={{ touchAction: "pan-y" }}
+        style={{ touchAction: "pan-x" }}
       >
         <AnimatePresence mode="wait">
           <motion.div
@@ -256,7 +260,8 @@ export function Services() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
             >
-              <MobileSlider products={activeProducts} />
+              {/* key resets the slider's internal index when the tab changes */}
+              <MobileSlider key={activeTab} products={activeProducts} />
             </motion.div>
           </AnimatePresence>
         </div>
@@ -335,7 +340,7 @@ export function Services() {
           </AnimatePresence>
 
           <div className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-border bg-background/80 px-4 py-2 font-mono text-xs text-muted-foreground shadow-sm backdrop-blur-md">
-            Hover products to converge &amp; inspect specifications
+            Hover products to converge & inspect specifications
           </div>
         </div>
       </div>
