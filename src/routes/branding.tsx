@@ -91,7 +91,7 @@ function BrandingPage() {
             >
               <span className="tag">Design Booth</span>
               <span className="display mt-4 block text-[clamp(2rem,5vw,3.25rem)] text-primary">
-                {FINISHES[active].name}
+                {FINISHES[active]?.name}
               </span>
               <motion.span
                 initial={{ scaleX: 0 }}
@@ -100,7 +100,7 @@ function BrandingPage() {
                 className="mt-6 block h-px w-full origin-left bg-primary/40"
               />
               <span className="mt-4 block text-xs text-muted-foreground">
-                {FINISHES[active].spec}
+                {FINISHES[active]?.spec}
               </span>
             </motion.div>
           </div>
