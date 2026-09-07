@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { AnimatePresence, motion } from "motion/react";
+
+import hiVisJacket from "@/assets/images/DEFAULT_1024X1024 (1).jpg";
+import safetyWorkwear from "@/assets/images/DEFAULT_1024X1024 (2).jpg";
+import brandedCap from "@/assets/images/HS-UB-66-C-DEFAULT_DEFAULT.jpg";
+import executiveGiftSet from "@/assets/images/GF-AV-1177-B-DEFAULT_DEFAULT.jpg";
+import brandedPens from "@/assets/images/IDEA-0224-DEFAULT_DEFAULT.jpg";
+import thermalTumblers from "@/assets/images/DR-AC-298-B-DEFAULT_DEFAULT.jpg";
+import outdoorGazebo from "@/assets/images/DISPLAY-2068-DEFAULT_DEFAULT.jpg";
+import teardropFlags from "@/assets/images/DISPLAY-1025-DEFAULT_DEFAULT.jpg";
 
 interface ProductItem {
   id: string;
   name: string;
-  category: string;
   spec: string;
   image: string;
   rotation: number;
@@ -12,40 +20,34 @@ interface ProductItem {
 }
 
 const PRODUCT_CATEGORIES = [
-  { id: "merch", label: "01. Apparel & Wearables" },
-  { id: "gifts", label: "02. Executive Gifts" },
-  { id: "print", label: "03. Print & Signage" },
+  { id: "merch", label: "01. Apparel & Workwear" },
+  { id: "gifts", label: "02. Executive Gifts & Drinkware" },
+  { id: "print", label: "03. Display & Outdoor Signage" },
 ];
 
 const PRODUCTS: Record<string, ProductItem[]> = {
   merch: [
     {
       id: "m1",
-      name: "Heavyweight Branded Tee",
-      category: "Screen Printing",
-      spec: "240GSM Organic Cotton",
-      image:
-        "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&q=80&w=800",
+      name: "Industrial Hi-Vis Parka",
+      spec: "Thermal insulation, waterproof with chest branding",
+      image: hiVisJacket,
       rotation: -6,
       offset: { x: -180, y: -40 },
     },
     {
       id: "m2",
-      name: "Structured Corporate Cap",
-      category: "3D Embroidery",
-      spec: "Custom Metal Buckle",
-      image:
-        "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&q=80&w=800",
+      name: "Safety Utility Jacket",
+      spec: "High-visibility dual tone, reinforced stitching",
+      image: safetyWorkwear,
       rotation: 8,
       offset: { x: 180, y: 50 },
     },
     {
       id: "m3",
-      name: "Thermal Tumbler",
-      category: "Laser Engraving",
-      spec: "Double-wall Stainless Steel",
-      image:
-        "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&q=80&w=800",
+      name: "Custom Trucker Cap",
+      spec: "Breathable mesh back with screen-printed brand logo",
+      image: brandedCap,
       rotation: -3,
       offset: { x: 0, y: -80 },
     },
@@ -53,48 +55,157 @@ const PRODUCTS: Record<string, ProductItem[]> = {
   gifts: [
     {
       id: "g1",
-      name: "Gold Foiled Leather Journal",
-      category: "Blind Embossing",
-      spec: "Genuine Italian Leather",
-      image:
-        "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800",
+      name: "Executive VIP Gift Set",
+      spec: "Notebook, engraved metal pen and keyring in presentation box",
+      image: executiveGiftSet,
       rotation: -8,
-      offset: { x: -150, y: 30 },
+      offset: { x: -180, y: 30 },
     },
     {
       id: "g2",
-      name: "Executive Pen Set",
-      category: "Pad Printing",
-      spec: "Matte Black Alloy",
-      image:
-        "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&q=80&w=800",
+      name: "Insulated Thermal Tumbler Trio",
+      spec: "Double-walled matte finish with handle and laser marking",
+      image: thermalTumblers,
       rotation: 5,
-      offset: { x: 150, y: -50 },
+      offset: { x: 180, y: -40 },
+    },
+    {
+      id: "g3",
+      name: "Branded Slimline Ballpoint Pens",
+      spec: "Multi-color barrel options with high-precision pad printing",
+      image: brandedPens,
+      rotation: -2,
+      offset: { x: 0, y: -70 },
     },
   ],
   print: [
     {
       id: "p1",
-      name: "Hardcover Annual Report",
-      category: "Offset Print",
-      spec: "Spot UV & Matt Lamination",
-      image:
-        "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=800",
+      name: "Branded Event Gazebo / Marquee",
+      spec: "Heavy-duty pop-up frame with full-color waterproof canopy & side walls",
+      image: outdoorGazebo,
       rotation: -4,
       offset: { x: -150, y: -40 },
     },
     {
       id: "p2",
-      name: "Architectural Signage",
-      category: "Large Format",
-      spec: "3D Acrylic & LED Backlit",
-      image:
-        "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800",
+      name: "Teardrop & Telescopic Flags",
+      spec: "Double-sided sublimated fabric with cross base and ground spike",
+      image: teardropFlags,
       rotation: 7,
       offset: { x: 150, y: 30 },
     },
   ],
 };
+
+/** Mobile touch-swipe carousel slide */
+function MobileSlider({ products }: { products: ProductItem[] }) {
+  const [current, setCurrent] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 40) {
+      if (delta > 0) setCurrent((c) => Math.min(c + 1, products.length - 1));
+      else setCurrent((c) => Math.max(c - 1, 0));
+    }
+    touchStartX.current = null;
+  };
+
+  const product = products[current];
+
+  return (
+    <div className="relative w-full">
+      {/* Slide area */}
+      <div
+        className="relative overflow-hidden rounded-3xl border border-border bg-surface"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        style={{ touchAction: "pan-y" }}
+      >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={product.id}
+            initial={{ opacity: 0, x: 60 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -60 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="flex flex-col"
+          >
+            {/* Image */}
+            <div className="relative aspect-[4/3] overflow-hidden bg-background">
+              <img
+                src={product.image}
+                alt={product.name}
+                loading="lazy"
+                className="h-full w-full object-contain"
+              />
+            </div>
+
+            {/* Info */}
+            <div className="border-t border-border bg-background p-6">
+              <h4 className="display text-xl text-foreground">{product.name}</h4>
+              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                {product.spec}
+              </p>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Dots + arrows nav */}
+      <div className="mt-5 flex items-center justify-between px-1">
+        {/* Prev */}
+        <button
+          onClick={() => setCurrent((c) => Math.max(c - 1, 0))}
+          disabled={current === 0}
+          aria-label="Previous product"
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface text-foreground transition-colors hover:border-primary hover:text-primary disabled:opacity-30"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+
+        {/* Dot indicators */}
+        <div className="flex gap-2">
+          {products.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrent(idx)}
+              aria-label={`Go to slide ${idx + 1}`}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                idx === current ? "w-6 bg-primary" : "w-2 bg-border"
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Next */}
+        <button
+          onClick={() => setCurrent((c) => Math.min(c + 1, products.length - 1))}
+          disabled={current === products.length - 1}
+          aria-label="Next product"
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface text-foreground transition-colors hover:border-primary hover:text-primary disabled:opacity-30"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Slide counter */}
+      <p className="mt-3 text-center font-mono text-xs text-muted-foreground">
+        {current + 1} / {products.length} — swipe to explore
+      </p>
+    </div>
+  );
+}
 
 export function Services() {
   const [activeTab, setActiveTab] = useState("merch");
@@ -135,7 +246,23 @@ export function Services() {
           </div>
         </div>
 
-        <div className="relative flex h-[560px] w-full items-center justify-center overflow-hidden rounded-3xl border border-border bg-surface sm:h-[640px]">
+        {/* ─── Mobile: swipe slider ──────────────────────────────────── */}
+        <div className="sm:hidden">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+            >
+              <MobileSlider products={activeProducts} />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* ─── Desktop: scattered card layout ───────────────────────── */}
+        <div className="relative hidden h-[560px] w-full items-center justify-center overflow-hidden rounded-3xl border border-border bg-surface sm:flex sm:h-[640px]">
           <div className="absolute inset-0 bg-[radial-gradient(var(--color-border)_1px,transparent_1px)] [background-size:24px_24px] opacity-60" />
 
           <AnimatePresence mode="wait">
@@ -190,9 +317,6 @@ export function Services() {
                           loading="lazy"
                           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
-                        <div className="absolute left-3 top-3 rounded-full border border-border bg-background/90 px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-wider text-primary backdrop-blur-md">
-                          {product.category}
-                        </div>
                       </div>
 
                       <div className="flex flex-col justify-between px-2 pb-2 pt-4">
@@ -211,7 +335,7 @@ export function Services() {
           </AnimatePresence>
 
           <div className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-border bg-background/80 px-4 py-2 font-mono text-xs text-muted-foreground shadow-sm backdrop-blur-md">
-            Hover products to converge & inspect specifications
+            Hover products to converge &amp; inspect specifications
           </div>
         </div>
       </div>

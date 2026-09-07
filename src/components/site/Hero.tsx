@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import heroShowcase from "@/assets/hero-showcase.png";
+import corporateApparel from "@/assets/images/CW-AV-186-A-CW-AV-186-A-W-MOGR42_DEFAULT.jpg";
 
 const WORDS = ["VOICE", "IDENTITY", "PRESENCE"];
 
@@ -57,16 +57,24 @@ export function Hero() {
         </div>
 
         <div className="relative flex items-center justify-center">
-          <motion.img
-            src={heroShowcase}
-            alt="Branded t-shirt, tumbler, notebook and business cards produced by Design Booth Graphics"
-            width={1200}
-            height={1200}
-            initial={{ opacity: 0, scale: 0.94 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="float-slow relative w-[78%] max-w-lg drop-shadow-2xl lg:w-[86%]"
-          />
+          <div className="relative w-full overflow-hidden rounded-3xl border border-border bg-surface shadow-2xl transition-transform hover:scale-[1.01]">
+            <motion.img
+              src={corporateApparel}
+              alt="Executive Corporate Uniforms & Embroidered Apparel by Design Booth Graphics"
+              width={1200}
+              height={1200}
+              initial={{ opacity: 0, scale: 0.94 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="aspect-[4/3] w-full object-contain lg:aspect-auto lg:max-h-[540px]"
+            />
+            <div className="absolute bottom-0 left-0 right-0 border-t border-border/60 bg-background/85 px-6 py-4 backdrop-blur-md">
+              <span className="tag text-primary">Executive Workwear</span>
+              <p className="display text-sm font-medium text-foreground">
+                Tailored Corporate Shirts & High-Precision Embroidery
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

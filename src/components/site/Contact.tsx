@@ -1,8 +1,14 @@
+import dbgLogo from "@/assets/logo/logo.jpg";
+
 const DETAILS = [
   { label: "Phone", value: "+263 772 659 601", href: "tel:+263772659601" },
   { label: "Phone", value: "+263 718 440 989", href: "tel:+263718440989" },
   { label: "WhatsApp", value: "wa.me/263772659601", href: "https://wa.me/263772659601" },
-  { label: "Email", value: "sales@thedesignbooth.co.zw", href: "mailto:sales@thedesignbooth.co.zw" },
+  {
+    label: "Email",
+    value: "sales@thedesignbooth.co.zw",
+    href: "mailto:sales@thedesignbooth.co.zw",
+  },
 ];
 
 export function Contact() {
@@ -56,11 +62,16 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-border">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-        <div>
-          <span className="display text-sm">
+        <div className="flex items-center gap-3">
+          <img
+            src={dbgLogo}
+            alt="Design Booth Graphics Logo"
+            className="h-6 w-auto object-contain mix-blend-multiply"
+          />
+          <span className="display text-sm font-semibold">
             Design<span className="text-muted-foreground">Booth</span>
           </span>
-          <span className="tag ml-3">Make a date with us</span>
+          <span className="tag ml-2 hidden sm:inline-block">Make a date with us</span>
         </div>
         <p className="text-xs text-muted-foreground">
           © Design Booth Graphics (Pvt) Ltd. All rights reserved.

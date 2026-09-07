@@ -3,6 +3,8 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/
 import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 
+import dbgLogo from "@/assets/logo/logo.jpg";
+
 const links = [
   { label: "Studio", to: "/" },
   { label: "Branding", to: "/branding" },
@@ -32,7 +34,12 @@ export function SiteHeader() {
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
         <Link to="/" className="flex items-center gap-2.5">
-          <span className="display text-sm tracking-tight">
+          <img
+            src={dbgLogo}
+            alt="Design Booth Graphics Logo"
+            className="h-7 w-auto object-contain mix-blend-multiply"
+          />
+          <span className="display text-sm font-semibold tracking-tight">
             Design<span className="text-muted-foreground">Booth</span>
           </span>
         </Link>
