@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { PageShell, KineticHeading } from "@/components/site/PageShell";
 import { About } from "@/components/site/About";
 import { Techniques } from "@/components/site/Techniques";
+import corporateApparel from "@/assets/images/CW-AV-186-A-CW-AV-186-A-W-MOGR42_DEFAULT.jpg";
 
 const title = "About Design Booth Graphics | Zimbabwean Design Studio";
 const description =
@@ -36,6 +37,10 @@ function AboutPage() {
         tag="Company profile"
         lines={["We give", "your brand", "a voice"]}
         sub="Zimbabwean owned. Quality focused. Design · Print · Brand — everything under one roof."
+        image={{
+          src: corporateApparel,
+          alt: "Executive corporate workwear created by Design Booth Graphics",
+        }}
       />
 
       <section className="mx-auto max-w-7xl px-5 pb-8 sm:px-8">
