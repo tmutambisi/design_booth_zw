@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as BrandingRouteImport } from './routes/branding'
+import { Route as ClientsRouteImport } from './routes/clients'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as MerchandiseRouteImport } from './routes/merchandise'
 import { Route as PrintRouteImport } from './routes/print'
@@ -29,6 +30,11 @@ const AboutRoute = AboutRouteImport.update({
 const BrandingRoute = BrandingRouteImport.update({
   id: '/branding',
   path: '/branding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClientsRoute = ClientsRouteImport.update({
+  id: '/clients',
+  path: '/clients',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/branding': typeof BrandingRoute
+  '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
   '/merchandise': typeof MerchandiseRoute
   '/print': typeof PrintRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/branding': typeof BrandingRoute
+  '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
   '/merchandise': typeof MerchandiseRoute
   '/print': typeof PrintRoute
@@ -68,6 +76,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/branding': typeof BrandingRoute
+  '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
   '/merchandise': typeof MerchandiseRoute
   '/print': typeof PrintRoute
@@ -75,14 +84,28 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/about' | '/branding' | '/contact' | '/merchandise' | '/print'
+    | '/'
+    | '/about'
+    | '/branding'
+    | '/clients'
+    | '/contact'
+    | '/merchandise'
+    | '/print'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/branding' | '/contact' | '/merchandise' | '/print'
+  to:
+    | '/'
+    | '/about'
+    | '/branding'
+    | '/clients'
+    | '/contact'
+    | '/merchandise'
+    | '/print'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/branding'
+    | '/clients'
     | '/contact'
     | '/merchandise'
     | '/print'
@@ -92,6 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   BrandingRoute: typeof BrandingRoute
+  ClientsRoute: typeof ClientsRoute
   ContactRoute: typeof ContactRoute
   MerchandiseRoute: typeof MerchandiseRoute
   PrintRoute: typeof PrintRoute
@@ -118,6 +142,13 @@ declare module '@tanstack/react-router' {
       path: '/branding'
       fullPath: '/branding'
       preLoaderRoute: typeof BrandingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/clients': {
+      id: '/clients'
+      path: '/clients'
+      fullPath: '/clients'
+      preLoaderRoute: typeof ClientsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -148,6 +179,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   BrandingRoute: BrandingRoute,
+  ClientsRoute: ClientsRoute,
   ContactRoute: ContactRoute,
   MerchandiseRoute: MerchandiseRoute,
   PrintRoute: PrintRoute,

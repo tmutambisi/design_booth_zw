@@ -129,9 +129,6 @@ function MerchandisePage() {
                   loading="lazy"
                   className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
                 />
-                <span className="tag absolute left-4 top-4 rounded-full border border-border bg-background/90 px-3 py-1 text-[10px] text-primary backdrop-blur-sm">
-                  {item.category}
-                </span>
               </div>
               <div className="border-t border-border bg-background p-6">
                 <h2 className="display text-xl transition-colors group-hover:text-primary">

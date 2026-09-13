@@ -6,11 +6,10 @@ import { Menu, X } from "lucide-react";
 import dbgLogo from "@/assets/logo/logo.jpg";
 
 const links = [
-  { label: "Studio", to: "/" },
-  { label: "Branding", to: "/branding" },
-  { label: "Print", to: "/print" },
-  { label: "Merchandise", to: "/merchandise" },
   { label: "About", to: "/about" },
+  { label: "Branding", to: "/branding" },
+  { label: "Corporate wear & corporate gifts", to: "/merchandise" },
+  { label: "Our clients", to: "/clients" },
   { label: "Contact", to: "/contact" },
 ] as const;
 
