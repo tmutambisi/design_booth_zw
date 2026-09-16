@@ -32,7 +32,7 @@ export function KineticHeading({
 }) {
   return (
     <header
-      className={`mx-auto max-w-7xl px-5 pt-36 pb-16 sm:px-8 sm:pt-44 sm:pb-24 ${
+      className={`mx-auto w-full max-w-[1400px] px-4 pt-28 pb-12 sm:px-6 sm:pt-36 sm:pb-16 lg:px-8 lg:pt-40 lg:pb-20 ${
         image ? "grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16" : ""
       }`}
     >
@@ -46,7 +46,7 @@ export function KineticHeading({
           {tag}
         </motion.span>
 
-        <h1 className="display mt-5 text-[clamp(2.5rem,8vw,5.5rem)]">
+        <h1 className="display mt-5 text-[clamp(2.7rem,9vw,8rem)] leading-[0.9] tracking-[-0.06em]">
           {lines.map((line, i) => (
             <span key={line} className="block overflow-hidden py-[0.06em]">
               <motion.span
@@ -68,7 +68,7 @@ export function KineticHeading({
 
         {sub ? (
           <motion.p
-            className="mt-7 max-w-md text-[15px] leading-relaxed text-muted-foreground"
+            className="mt-6 max-w-[38rem] text-[15px] leading-relaxed text-muted-foreground sm:mt-7 sm:text-base"
             initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ delay: 0.18, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}

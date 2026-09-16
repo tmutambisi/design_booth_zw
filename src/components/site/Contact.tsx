@@ -77,10 +77,14 @@ export function SiteFooter() {
           <p className="text-xs text-muted-foreground">
             © Design Booth Graphics (Pvt) Ltd. All rights reserved.
           </p>
-          <p className="font-mono text-[10px] text-muted-foreground/60">
-            Powered by{" "}
-            <span className="font-semibold tracking-widest text-muted-foreground">TUNGASONIC</span>
-          </p>
+          <a
+            href="https://tungasonic.co.zw"
+            target="_blank"
+            rel="noreferrer"
+            className="font-mono text-[10px] text-muted-foreground/60 transition-colors hover:text-primary"
+          >
+            Powered by <span className="font-semibold tracking-widest text-muted-foreground">TUNGASONIC</span>
+          </a>
         </div>
       </div>
     </footer>

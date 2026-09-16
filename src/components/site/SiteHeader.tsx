@@ -31,25 +31,25 @@ export function SiteHeader() {
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
       className="glass fixed inset-x-0 top-0 z-50 border-b border-border"
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
-        <Link to="/" className="flex items-center gap-2.5">
+      <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link to="/" className="flex min-w-0 items-center gap-2.5">
           <img
             src={dbgLogo}
             alt="Design Booth Graphics Logo"
             className="h-7 w-auto object-contain mix-blend-multiply"
           />
-          <span className="display text-sm font-semibold tracking-tight">
+          <span className="display text-[11px] font-semibold tracking-tight sm:text-sm">
             Design<span className="text-muted-foreground">Booth</span>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-4 text-center xl:gap-8 2xl:flex">
           {links.map((l) => (
             <Link
               key={l.to}
               to={l.to}
               activeOptions={{ exact: l.to === "/" }}
-              className="text-[13px] text-muted-foreground transition-colors hover:text-primary"
+              className="text-[11px] leading-none text-muted-foreground transition-colors hover:text-primary xl:text-[12px] 2xl:text-[13px]"
               activeProps={{ className: "text-foreground" }}
             >
               {l.label}
@@ -60,7 +60,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <Link
             to="/contact"
-            className="hidden rounded-full border border-border px-5 py-2 text-[13px] transition-colors hover:border-primary hover:text-primary sm:inline-flex"
+            className="hidden rounded-full border border-border px-4 py-2 text-[11px] transition-colors hover:border-primary hover:text-primary sm:inline-flex sm:text-[12px]"
           >
             Design today
           </Link>

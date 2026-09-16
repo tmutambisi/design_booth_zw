@@ -37,10 +37,10 @@ const CLIENTS = [
   { name: "Laboserv", image: laboserv },
   { name: "Agrifora", image: agrifora },
   { name: "Zimbabwe Institute of Management", image: zimInstituteOfManagement },
-  { name: "Macrotop Zimbabwe", image: macrotop },
-  { name: "WWF Zimbabwe", image: wwf },
-  { name: "Zororo Memorial Park", image: zororo },
-  { name: "African Wildlife Foundation", image: africanWildlifeFoundation },
+  { name: "African Wildlife Foundation", image: macrotop },
+  { name: "Macrotop Zimbabwe (Pvt) Ltd", image: wwf },
+  { name: "WWF Zimbabwe", image: zororo },
+  { name: "Zororo Memorial Park", image: africanWildlifeFoundation },
 ];
 
 function ClientsPage() {
