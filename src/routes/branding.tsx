@@ -3,8 +3,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { PageShell, KineticHeading } from "@/components/site/PageShell";
 
-import executiveSetImg from "@/assets/images/GF-AV-1177-B-DEFAULT_DEFAULT.jpg";
-import laserTumblerImg from "@/assets/images/DR-AC-298-B-DEFAULT_DEFAULT.jpg";
+import blindEmbossImg from "@/assets/brading/business cards.jpeg";
+import bannerImg from "@/assets/brading/banner.jpeg";
+import brandedApparelImg from "@/assets/brading/brand.jpeg";
+import goldFoilImg from "@/assets/brading/engraved.jpeg";
+import laserEngraveImg from "@/assets/brading/laser.jpeg";
+import promotionalMerchImg from "@/assets/brading/WhatsApp Image 2026-09-16 at 15.48.26.jpeg";
+import flagsImg from "@/assets/brading/WhatsApp Image 2026-09-16 at 15.48.27.jpeg";
 
 const title = "Branding & Identity | Design Booth Graphics Harare";
 const description =
@@ -109,56 +114,158 @@ function BrandingPage() {
           </div>
         </div>
 
-        {/* Real Branded Case Studies */}
+        {/* Client finish samples */}
         <div className="mt-20">
-          <span className="tag">Portfolio highlights</span>
+          <span className="tag">Client finish samples</span>
           <h3 className="display mt-4 text-[clamp(1.75rem,4vw,2.75rem)] text-foreground">
-            Precision <span className="text-primary">finishing</span> in practice
+            Details you can <span className="text-primary">feel</span>
           </h3>
           <p className="mt-2 text-sm text-muted-foreground">
-            Tangible brand identity produced with our in-house laser engraving, embossing, and pad
-            printing equipment.
+            A closer look at the foil, pressure and laser finishes available for client stationery,
+            packaging and gifts.
           </p>
 
-          <div className="mt-10 grid gap-8 md:grid-cols-2">
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
             <div className="group overflow-hidden rounded-3xl border border-border bg-surface transition-colors hover:border-primary">
-              <div className="relative aspect-[4/3] overflow-hidden bg-background p-6">
+              <div className="relative aspect-[4/3] overflow-hidden bg-background">
                 <img
-                  src={executiveSetImg}
-                  alt="Executive VIP Presentation Box with Foil Embossed Journal and Laser Engraved Pen"
+                  src={goldFoilImg}
+                  alt="Close-up of raised gold foil lettering on a white stationery card"
                   loading="lazy"
-                  className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="border-t border-border bg-background p-6 sm:p-8">
-                <span className="tag text-primary">Blind Emboss & Laser Engrave</span>
+                <span className="tag text-primary">Gold Foil</span>
                 <h4 className="display mt-2 text-xl text-foreground group-hover:text-primary">
-                  Executive Suite & Bespoke Gift Box
+                  Metallic detail
                 </h4>
                 <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                  Custom-molded presentation box, blind-debossed leatherette notebook, precision
-                  metal pen, and matching laser-marked keyring.
+                  Reflective foil pressed into premium stock for stationery, invitations and
+                  packaging.
                 </p>
               </div>
             </div>
 
             <div className="group overflow-hidden rounded-3xl border border-border bg-surface transition-colors hover:border-primary">
-              <div className="relative aspect-[4/3] overflow-hidden bg-background p-6">
+              <div className="relative aspect-[4/3] overflow-hidden bg-background">
                 <img
-                  src={laserTumblerImg}
-                  alt="Laser Engraved Thermal Drinkware Collection"
+                  src={blindEmbossImg}
+                  alt="Stack of branded business cards showing layered paper stock"
                   loading="lazy"
-                  className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="border-t border-border bg-background p-6 sm:p-8">
-                <span className="tag text-primary">Precision Fiber Laser Engraving</span>
+                <span className="tag text-primary">Blind Emboss</span>
                 <h4 className="display mt-2 text-xl text-foreground group-hover:text-primary">
-                  Corporate Drinkware & Permanent Marking
+                  Tactile paper stock
                 </h4>
                 <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                  Crisp laser ablation exposing bare stainless steel against durable matte
-                  powder-coated finishes for timeless executive gifts.
+                  Pressure-formed marks and layered card finishes that reward a closer look and
+                  touch.
+                </p>
+              </div>
+            </div>
+
+            <div className="group overflow-hidden rounded-3xl border border-border bg-surface transition-colors hover:border-primary">
+              <div className="relative aspect-[4/3] overflow-hidden bg-background">
+                <img
+                  src={laserEngraveImg}
+                  alt="Laser engraving head marking a metal sheet with a bright beam"
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="border-t border-border bg-background p-6 sm:p-8">
+                <span className="tag text-primary">Laser Engrave</span>
+                <h4 className="display mt-2 text-xl text-foreground group-hover:text-primary">
+                  Permanent precision
+                </h4>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  Crisp, permanent marking for metal, leather, drinkware, awards and executive
+                  gifts.
+                </p>
+              </div>
+            </div>
+
+            <div className="group overflow-hidden rounded-3xl border border-border bg-surface transition-colors hover:border-primary">
+              <div className="relative aspect-[4/3] overflow-hidden bg-background">
+                <img
+                  src={bannerImg}
+                  alt="Set of branded pull-up display banners"
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="border-t border-border bg-background p-6 sm:p-8">
+                <span className="tag text-primary">Display Graphics</span>
+                <h4 className="display mt-2 text-xl text-foreground group-hover:text-primary">
+                  Branded environments
+                </h4>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  Roll-up banners and event graphics that carry a consistent identity into the room.
+                </p>
+              </div>
+            </div>
+
+            <div className="group overflow-hidden rounded-3xl border border-border bg-surface transition-colors hover:border-primary">
+              <div className="relative aspect-[4/3] overflow-hidden bg-background">
+                <img
+                  src={brandedApparelImg}
+                  alt="Branded embroidered polo shirt with a corporate logo"
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="border-t border-border bg-background p-6 sm:p-8">
+                <span className="tag text-primary">Branded Apparel</span>
+                <h4 className="display mt-2 text-xl text-foreground group-hover:text-primary">
+                  Identity in motion
+                </h4>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  Clean, durable logo applications for teams, uniforms and corporate wear.
+                </p>
+              </div>
+            </div>
+
+            <div className="group overflow-hidden rounded-3xl border border-border bg-surface transition-colors hover:border-primary">
+              <div className="relative aspect-[4/3] overflow-hidden bg-background">
+                <img
+                  src={promotionalMerchImg}
+                  alt="Blue and white branded promotional merchandise collection"
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="border-t border-border bg-background p-6 sm:p-8">
+                <span className="tag text-primary">Promotional Merchandise</span>
+                <h4 className="display mt-2 text-xl text-foreground group-hover:text-primary">
+                  Branded essentials
+                </h4>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  Coordinated pens, USB drives, golf accessories and giveaways for memorable
+                  campaigns.
+                </p>
+              </div>
+            </div>
+
+            <div className="group overflow-hidden rounded-3xl border border-border bg-surface transition-colors hover:border-primary">
+              <div className="relative aspect-[4/3] overflow-hidden bg-background">
+                <img
+                  src={flagsImg}
+                  alt="Collection of colourful branded teardrop flags"
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="border-t border-border bg-background p-6 sm:p-8">
+                <span className="tag text-primary">Outdoor Branding</span>
+                <h4 className="display mt-2 text-xl text-foreground group-hover:text-primary">
+                  Make the mark visible
+                </h4>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  High-impact feather flags and outdoor graphics built to stand out at distance.
                 </p>
               </div>
             </div>
