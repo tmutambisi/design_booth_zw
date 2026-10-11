@@ -1,13 +1,13 @@
 const WORDS = [
-  "Live Graphic Design",
-  "Vinyl Weeding",
+  "Branded Corporate Gifts",
+  "Corporate Wear",
+  "Print & Signage",
+  "Branding",
+  "Vehicle Branding",
   "Laser Engraving",
   "Screen Printing",
-  "Corporate T-Shirts",
   "Thermal Tumblers",
   "Branded Caps",
-  "Paper Bags",
-  "Large Format Printing",
   "Embroidery",
 ];
 

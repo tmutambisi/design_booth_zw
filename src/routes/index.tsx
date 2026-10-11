@@ -7,9 +7,9 @@ import { Techniques } from "@/components/site/Techniques";
 import { About } from "@/components/site/About";
 import { Contact, SiteFooter } from "@/components/site/Contact";
 
-const title = "Design Booth Graphics | Print & Design Studio Zimbabwe";
+const title = "Corporate Gifts, Print & Branding | Design Booth Graphics Zimbabwe";
 const description =
-  "Corporate gifts Zimbabwe, branded t-shirts Harare, large format printing and signage. Zimbabwean owned design, print & branding studio at Pax House, Harare.";
+  "Branded corporate gifts, wearables, print and signage in Harare and nationwide Zimbabwe. Design Booth Graphics helps businesses put their brand in the room.";
 
 export const Route = createFileRoute("/")({
   head: () => ({

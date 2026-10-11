@@ -20,9 +20,9 @@ interface ProductItem {
 }
 
 const PRODUCT_CATEGORIES = [
-  { id: "merch", label: "01. Apparel & Workwear" },
-  { id: "gifts", label: "02. Executive Gifts & Drinkware" },
-  { id: "print", label: "03. Display & Outdoor Signage" },
+  { id: "merch", label: "01. Branded Apparel" },
+  { id: "gifts", label: "02. Corporate Gifts" },
+  { id: "print", label: "03. Print & Display" },
 ];
 
 const PRODUCTS: Record<string, ProductItem[]> = {
@@ -154,9 +154,7 @@ function MobileSlider({ products }: { products: ProductItem[] }) {
             {/* Info */}
             <div className="border-t border-border bg-background p-6">
               <h4 className="display text-xl text-foreground">{product.name}</h4>
-              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                {product.spec}
-              </p>
+              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{product.spec}</p>
             </div>
           </motion.div>
         </AnimatePresence>
@@ -171,7 +169,16 @@ function MobileSlider({ products }: { products: ProductItem[] }) {
           aria-label="Previous product"
           className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface text-foreground transition-colors hover:border-primary hover:text-primary disabled:opacity-30"
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <polyline points="15 18 9 12 15 6" />
           </svg>
         </button>
@@ -197,7 +204,16 @@ function MobileSlider({ products }: { products: ProductItem[] }) {
           aria-label="Next product"
           className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface text-foreground transition-colors hover:border-primary hover:text-primary disabled:opacity-30"
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <polyline points="9 18 15 12 9 6" />
           </svg>
         </button>
@@ -224,7 +240,7 @@ export function Services() {
       <div className="mx-auto w-full max-w-7xl">
         <div className="mb-14 flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div>
-            <span className="tag text-secondary">Tactile craftsmanship</span>
+            <span className="tag text-secondary">Gifts · print · branding</span>
             <h2 className="display mt-4 text-[clamp(2rem,5vw,3.75rem)] text-foreground">
               Branded <span className="italic text-primary">products</span> in motion
             </h2>

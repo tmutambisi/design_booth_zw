@@ -8,6 +8,7 @@ import dbgLogo from "@/assets/logo/logo.jpg";
 const links = [
   { label: "About", to: "/about" },
   { label: "Branding", to: "/branding" },
+  { label: "Print & signage", to: "/print" },
   { label: "Corporate wear & corporate gifts", to: "/merchandise" },
   { label: "Our clients", to: "/clients" },
   { label: "Contact", to: "/contact" },
@@ -33,13 +34,17 @@ export function SiteHeader() {
     >
       <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex min-w-0 items-center gap-2.5 text-white">
-          <img src={dbgLogo} alt="Design Booth Graphics Logo" className="h-10 w-auto object-contain sm:h-12" />
+          <img
+            src={dbgLogo}
+            alt="Design Booth Graphics Logo"
+            className="h-10 w-auto object-contain sm:h-12"
+          />
           <span className="display text-[11px] font-semibold tracking-tight text-white sm:text-sm">
             DesignBooth
           </span>
         </div>
 
-        <nav className="hidden items-center gap-5 text-center md:flex xl:gap-7">
+        <nav className="hidden items-center gap-5 text-center lg:flex xl:gap-7">
           {links.map((l) => (
             <Link
               key={l.to}
@@ -58,12 +63,12 @@ export function SiteHeader() {
             to="/contact"
             className="hidden rounded-full border border-white/40 bg-white/0 px-4 py-2 text-[11px] font-medium text-white transition-colors hover:bg-white hover:text-[#2d69d6] sm:inline-flex sm:text-[12px]"
           >
-            Design today
+            Get a quote
           </Link>
           <button
             aria-label="Toggle menu"
             onClick={() => setOpen((v) => !v)}
-            className="grid h-9 w-9 place-items-center rounded-full border border-white/30 text-white md:hidden"
+            className="grid h-9 w-9 place-items-center rounded-full border border-white/30 text-white lg:hidden"
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
@@ -76,7 +81,7 @@ export function SiteHeader() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden border-t border-white/10 md:hidden"
+            className="overflow-hidden border-t border-white/10 lg:hidden"
           >
             <div className="flex flex-col px-5 py-4">
               {links.map((l, i) => (

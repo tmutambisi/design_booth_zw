@@ -25,27 +25,24 @@ export function About() {
 
         <div className="space-y-10">
           <p className="text-[15px] leading-relaxed text-muted-foreground">
-            Design Booth Graphics (Pvt) Ltd is a wholly Zimbabwean owned design and print company
-            with a quality focus dedicated to service excellence by marketing our clients in the
-            most creative and credible way. Our design studio boasts young talent endowed with
-            competitive passion and enthusiasm.
+            Design Booth Graphics (Pvt) Ltd is a wholly Zimbabwean-owned partner for branded
+            corporate gifts, wearables, print and signage. We help businesses put their brand out
+            there through quality products, dependable production and thoughtful finishing.
           </p>
 
           <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2">
             <div className="bg-surface p-7">
               <span className="tag">Vision</span>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                To become the most preferred one stop shop for design, print and branding; providing
-                the highest turnkey advertising solutions nationwide with global recognition amongst
-                the best.
+                To become Zimbabwe&apos;s preferred one-stop shop for branded corporate gifts,
+                print, signage and brand rollouts.
               </p>
             </div>
             <div className="bg-surface p-7">
               <span className="tag">Mission</span>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                To offer supreme, novel, over the top perpetual graphic design services tailor made
-                to suit clientele needs through harnessing our design talents and contemporary
-                technologies.
+                To make it easy for clients to take their brand into the world with useful products,
+                reliable print and consistent branding.
               </p>
             </div>
           </div>
@@ -53,9 +50,8 @@ export function About() {
           <div>
             <span className="tag">Philosophy</span>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              The Design Booth Graphics values the customer as the king and delivers services
-              according to particular customer needs, with expert graphic designing advice to make
-              the final product phenomenal with the best touch of originality.
+              We start with what each client needs to put their brand out there, then deliver
+              practical, quality pieces with care from production to finishing.
             </p>
           </div>
         </div>

@@ -22,7 +22,7 @@ export function Contact() {
           with us
         </h2>
         <p className="relative mt-6 max-w-sm text-[15px] text-muted-foreground">
-          Do you want your design today? Design today.
+          Looking for branded gifts, print or branding for your business? Talk to our team.
         </p>
 
         <div className="relative mt-12 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2">
@@ -51,7 +51,7 @@ export function Contact() {
           href="https://wa.me/263772659601"
           className="relative mt-10 inline-flex rounded-full bg-primary px-8 py-3.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
         >
-          Order branding
+          Request a quote
         </a>
       </div>
     </section>
@@ -83,7 +83,8 @@ export function SiteFooter() {
             rel="noreferrer"
             className="font-mono text-[10px] text-muted-foreground/60 transition-colors hover:text-primary"
           >
-            Powered by <span className="font-semibold tracking-widest text-muted-foreground">TUNGASONIC</span>
+            Powered by{" "}
+            <span className="font-semibold tracking-widest text-muted-foreground">TUNGASONIC</span>
           </a>
         </div>
       </div>

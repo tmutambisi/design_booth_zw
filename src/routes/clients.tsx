@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion } from "motion/react";
 import { PageShell, KineticHeading } from "@/components/site/PageShell";
 import transparencyInternational from "@/assets/partners/WhatsApp Image 2026-09-13 at 15.54.22.jpeg";
 import bBraun from "@/assets/partners/WhatsApp Image 2026-09-13 at 15.54.22 (1).jpeg";
@@ -52,27 +51,27 @@ function ClientsPage() {
         sub="From first impression to everyday wear, we help organisations show up with confidence."
       />
 
-      <section className="mx-auto max-w-7xl px-5 pb-24 sm:px-8 sm:pb-32">
-        <div className="grid gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-          {CLIENTS.map((client, index) => (
-            <motion.article
-              key={client.name}
-              initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              viewport={{ once: true }}
-              transition={{ type: "spring", stiffness: 100, damping: 18, delay: index * 0.08 }}
-              className="group bg-background p-5 transition-colors hover:bg-surface sm:p-7"
-            >
-              <div className="grid aspect-square place-items-center overflow-hidden rounded-2xl border border-border bg-white p-5 transition-transform duration-500 group-hover:scale-[1.02] sm:p-8">
-                <img
-                  src={client.image}
-                  alt={`${client.name} logo`}
-                  loading={index < 3 ? "eager" : "lazy"}
-                  className="h-full w-full object-contain"
-                />
-              </div>
-              <p className="mt-4 text-xs text-muted-foreground">{client.name}</p>
-            </motion.article>
+      <section aria-label="Our clients" className="overflow-hidden border-y border-border py-6">
+        <div className="marquee-track motion-reduce:animate-none flex w-max gap-4">
+          {[0, 1].map((duplicate) => (
+            <div key={duplicate} aria-hidden={duplicate === 1} className="flex shrink-0 gap-4">
+              {CLIENTS.map((client) => (
+                <article
+                  key={client.name}
+                  className="w-56 rounded-2xl border border-border bg-white p-4 sm:w-64"
+                >
+                  <div className="grid h-28 place-items-center">
+                    <img
+                      src={client.image}
+                      alt={`${client.name} logo`}
+                      loading="lazy"
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                  <p className="mt-3 text-xs text-muted-foreground">{client.name}</p>
+                </article>
+              ))}
+            </div>
           ))}
         </div>
       </section>
