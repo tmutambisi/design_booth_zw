@@ -58,17 +58,16 @@ function ClientsPage() {
               {CLIENTS.map((client) => (
                 <article
                   key={client.name}
-                  className="w-56 rounded-2xl border border-border bg-white p-4 sm:w-64"
+                  className="h-48 w-56 rounded-2xl border border-border bg-white p-4 sm:w-64"
                 >
-                  <div className="grid h-28 place-items-center">
+                  <div className="flex h-full min-h-0 w-full items-center justify-center overflow-hidden">
                     <img
                       src={client.image}
                       alt={`${client.name} logo`}
                       loading="lazy"
-                      className="h-full w-full object-contain"
+                      className="block h-full w-full object-contain"
                     />
                   </div>
-                  <p className="mt-3 text-xs text-muted-foreground">{client.name}</p>
                 </article>
               ))}
             </div>
